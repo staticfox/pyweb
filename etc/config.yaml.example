@@ -1,0 +1,7 @@
+qserver:
+  host: '127.0.0.1'
+  port: 7702
+  passsword: password
+  authserv_username: someuser
+  authserv_password: somepass
+  bind: '127.0.0.1'

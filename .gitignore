@@ -1,6 +1,6 @@
 etc/config.yaml
 __pycache__
 pysrvx-git
-!etc/.keep
+etc/config.yaml
 db/*.db
 !db/.keep
