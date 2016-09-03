@@ -9,11 +9,8 @@ from flask import Flask, flash, render_template, request, g
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./db/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-""" TODO: OS Variable """
-app.config['SECRET_KEY'] = 'sadfkjhdfsajhfdsakjlhfd'
+app.config.from_pyfile('etc/config.py')
 app.config['GS_CONF'] = None
 db = SQLAlchemy(app)
 

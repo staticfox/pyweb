@@ -1,0 +1,7 @@
+# A random secret that is used for session management.  To use an environment
+# variable, first `import os` and then do
+# `SECRET_KEY = os.environ['MY_SECRET_KEY']`.  See also:
+# http://flask.pocoo.org/docs/0.11/api/#flask.Flask.secret_key
+SECRET_KEY = 'sadfkjhdfsajhfdsakjlhfd'
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///./db/test.db'
