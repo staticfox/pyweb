@@ -3,3 +3,4 @@ etc/config.yaml
 __pycache__
 db/*.db
 !db/.keep
+venv
