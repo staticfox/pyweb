@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% if session.logged_in %}
+  <h2 style='text-align: center'>You are already signed in</h2>
+{% endif %}
+  <form action='login' method='POST' style='text-align: center'>
+    <input type='text' name='account' id='account' placeholder='account'></input>
+    <input type='password' name='password' id='password' placeholder='password'></input>
+    <input type='submit' name='submit'></input>
+  </form>
+{% endblock %}

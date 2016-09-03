@@ -1,0 +1,6 @@
+etc/config.yaml
+__pycache__
+pysrvx-git
+!etc/.keep
+db/*.db
+!db/.keep

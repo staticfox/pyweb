@@ -1,0 +1,3 @@
+[submodule "pysrvx-git"]
+	path = pysrvx-git
+	url = https://github.com/GameSurge/pysrvx
