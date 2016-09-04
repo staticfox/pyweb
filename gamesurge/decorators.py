@@ -1,4 +1,5 @@
 import pysrvx.srvx
+import sys
 import traceback
 
 from flask import g
@@ -31,7 +32,7 @@ def requiresrvx(app):
                     pysrvx.srvx.QServerSecurityViolation):
                 return("Services are currently unavailable")
             except Exception as e:
-                print("Error processing {}: <pre>{}</pre>".format(func.__name__, traceback.format_exc()))
+                print("Error processing {}: <pre>{}</pre>".format(func.__name__, traceback.format_exc()), file=sys.stderr, flush=True)
                 return("An error has occured, please try again later")
         return modified_func
     return decorator

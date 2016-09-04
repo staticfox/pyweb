@@ -2,3 +2,4 @@ Flask==0.11.1
 Flask-SQLAlchemy==2.1
 PyYAML==3.12
 flask-login==0.3.2
+-e git+https://github.com/GameSurge/pysrvx.git@29e4749c21214d9994edc6d9a64ab815b0e483b4#egg=pysrvx

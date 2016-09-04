@@ -1,4 +1,5 @@
 import pysrvx.srvx
+import sys
 
 from flask import g
 
@@ -38,6 +39,6 @@ class Services:
                 c['authserv_password'],
                 c['bind'])
         except pysrvx.srvx.AuthenticationError as e:
-            print("Unable to connect to SrvX {}".format(e))
+            print("Unable to connect to SrvX {}".format(e), file=sys.stderr, flush=True)
         except pysrvx.srvx.ConnectionError as e:
-            print("No SrvX connection found {}".format(e))
+            print("No SrvX connection found {}".format(e), file=sys.stderr, flush=True)

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.5
 import flask_login
+import sys
 import traceback
 import yaml
 
@@ -9,11 +10,8 @@ from flask import Flask, flash, render_template, request, g
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./db/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-""" TODO: OS Variable """
-app.config['SECRET_KEY'] = 'sadfkjhdfsajhfdsakjlhfd'
+app.config.from_pyfile('etc/config.py')
 app.config['GS_CONF'] = None
 db = SQLAlchemy(app)
 
@@ -25,15 +23,15 @@ def check_config():
     try:
         app.config['GS_CONF'] = yaml.load(open('./etc/config.yaml', 'r'))
     except yaml.YAMLError:
-        print("Error reading YAML file: {}".format(traceback.format_exc()))
-        exit()
+        print("Error reading YAML file: {}".format(traceback.format_exc()), file=sys.stderr, flush=True)
+        exit(1)
     except FileNotFoundError:
-        print("You must setup your config file in \"etc/config.yaml\"")
-        exit()
+        print('You must setup your config file in "etc/config.yaml"', file=sys.stderr, flush=True)
+        exit(1)
 
     if 'qserver' not in app.config['GS_CONF']:
-        print("You must supply a valid config file.")
-        exit()
+        print("You must supply a valid config file.", file=sys.stderr, flush=True)
+        exit(1)
 
 @app.route('/index')
 @app.route('/')
