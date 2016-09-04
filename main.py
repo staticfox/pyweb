@@ -63,7 +63,7 @@ def login():
 
     """ Login failed """
     flash('Username or password incorrect', 'error')
-    return render_template('login.html', status=2)
+    return render_template('login.html')
 
 @app.route('/staff')
 @access(100)
